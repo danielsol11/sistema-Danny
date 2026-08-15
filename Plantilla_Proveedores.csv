@@ -1,0 +1,4 @@
+fecha,codigo,producto,sucursal,categoria,tipo_compra,proveedor,kg_solicitados,kg_recibidos_proveedor,dias_entrega,kg_rechazados_proveedor,precio_compra_kg,compras_proveedor
+2026-08-05,9270,Pierna de cerdo,001 Matriz,Cerdo,Fresco,Proveedor Fresco Centro,42500,41100,1.2,420,43.5,1850000
+2026-08-05,9303,Recorte de costilla,002 Calpulalpan,Cerdo,Nacional,Proveedor Nacional Norte,68200,64700,3.8,980,47.2,3240000
+2026-08-05,9028,Menudo E-262,001 Matriz,Res congelada,Internacional,Proveedor Internacional A,155000,151500,12.5,1350,56.4,8750000

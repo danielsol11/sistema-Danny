@@ -1,0 +1,4 @@
+fecha,codigo,producto,sucursal,categoria,tipo_compra,inventario_kg,valor_inventario,dias_cobertura,dias_para_caducar,merma_kg,stock_minimo_kg
+2026-08-05,9028,Menudo E-262,001 Matriz,Res congelada,Internacional,4200,365000,18,9,85,1800
+2026-08-05,9270,Pierna de cerdo,001 Matriz,Cerdo,Fresco,6100,251000,11,7,42,2500
+2026-08-05,9069,Alitas marinadas,003 Calle 7,Pollo,Nacional,2800,92000,26,6,96,1200
