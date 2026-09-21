@@ -1,90 +1,68 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#10251e">
-<meta name="description" content="Un pequeño jardín de flores amarillas, con mucho cariño para ti.">
-<title>Un poquito de sol, para ti 🌼</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b211a"><meta name="description" content="Un toque, una flor. Un ramo amarillo para ti.">
+<title>Para MICH 💛</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌼%3C/text%3E%3C/svg%3E">
 <style>
-:root{color-scheme:dark;--cream:#faf1d9;--gold:#f6cf68;--muted:#b5c4af}
-*{box-sizing:border-box}
-body{margin:0;background:#10251e;color:var(--cream);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 72% 46%,#6b74272b,transparent 55%),radial-gradient(ellipse at 0% 100%,#2f543038,transparent 45%);z-index:-1}
-button{font:inherit;cursor:pointer;touch-action:manipulation}
-button:focus-visible{outline:2px solid var(--cream);outline-offset:6px}
-.page{max-width:1240px;margin:auto;padding:30px 6vw 18px;min-height:100svh;display:flex;flex-direction:column}
-header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-bottom:18px;border-bottom:1px solid #d6e3ac26}
-.brand{font-family:Georgia,serif;font-style:italic;font-size:21px}
-.date{font-size:10px;letter-spacing:2.4px;color:var(--muted);text-transform:uppercase}
-main{display:grid;grid-template-columns:0.95fr 1.05fr;align-items:center;flex:1;gap:20px;padding:30px 0}
-.copy{position:relative;z-index:2}
-.eyebrow{font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:0 0 24px}
-h1{font:normal clamp(52px,6.6vw,88px)/1.05 Georgia,serif;letter-spacing:-3px;margin:0 0 24px}
-h1 em{font-weight:normal;color:var(--gold)}
-.intro{font-size:15px;line-height:1.85;color:#c6d0bd;max-width:330px;margin:0 0 29px}
-.primary{border:1px solid var(--gold);background:var(--gold);color:#193024;border-radius:40px;padding:16px 24px;min-height:50px;font-size:13px;letter-spacing:.4px;transition:transform .25s,background .25s;box-shadow:0 6px 26px #0002}
-.primary:hover{background:#ffe59b;transform:translateY(-2px)}
-.primary span{padding-left:22px}
-.hint{font-size:11px;color:#9aae97;margin:16px 0 0}
-.note{max-width:360px;border-left:1px solid #e9c96c66;padding:2px 0 2px 20px;margin:24px 0 0;animation:appear 1s both}
-.note p{font:italic 21px/1.5 Georgia,serif;margin:0 0 14px;white-space:pre-line;overflow-wrap:anywhere}
-.note small{color:var(--gold);font-size:11px;letter-spacing:1px}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#0b211a;color:#fff1c8;font-family:Arial,sans-serif}
+body{background:radial-gradient(ellipse at 50% 45%,#344827 0,#152e22 42%,#081b16 85%);overflow:hidden}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #ffe189;outline-offset:5px}
 [hidden]{display:none!important}
-.garden{position:relative;min-width:0}
-.aura{position:absolute;width:75%;aspect-ratio:1;left:12%;top:12%;border-radius:50%;background:radial-gradient(circle,#d9c24f19,transparent 68%);transition:filter 2s}
-svg.bouquet{width:100%;display:block;overflow:visible;filter:drop-shadow(0 12px 18px #0003)}
-.orbit{fill:none;stroke:#d4daae20;stroke-width:1}
-.flower{transform-origin:300px 550px;animation:sway var(--speed) ease-in-out infinite alternate;animation-delay:var(--lag)}
-.head{transform:scale(.78);transition:transform 1.8s cubic-bezier(.2,.8,.25,1);transition-delay:var(--delay)}
-.opened .head{transform:scale(1)}
-.opened .aura{filter:brightness(1.8)}
+#gift{height:100svh;height:100dvh;min-height:360px;position:relative;isolation:isolate}
+h1{position:absolute;top:max(25px,env(safe-area-inset-top));left:20px;right:20px;text-align:center;z-index:3;font:italic normal clamp(32px,5vw,49px)/1.15 Georgia,serif;margin:0;pointer-events:none;overflow-wrap:anywhere;text-shadow:0 0 35px #ffdf7355}
+#stage{position:absolute;inset:0;width:100%;height:100%;padding:76px 10px 48px;border:0;background:none;color:inherit;display:flex;align-items:center;justify-content:center;user-select:none;overflow:hidden}
+.bouquet{height:100%;max-height:760px;width:100%;max-width:720px;overflow:visible;pointer-events:none;filter:drop-shadow(0 12px 20px #0004)}
+.orbit{fill:none;stroke:#e1d6a21a;stroke-width:1}
+.flower{opacity:0;transform:translateY(65px) scale(.08);transform-origin:300px 555px}
+.flower.visible{opacity:1;transform:translateY(0) scale(1);animation:grow .95s cubic-bezier(.18,.8,.2,1.18) both}
+.head{transform-origin:0 0}.visible .head{animation:unfold 1.1s cubic-bezier(.2,.75,.3,1.25) both}
+.petal-wheel{transform-origin:0 0}
 .stem{fill:none;stroke:url(#stem);stroke-width:4;stroke-linecap:round}
-.foliage{fill:url(#leaf)}
-.petals{fill:url(#petal);stroke:#fbe4a038;stroke-width:.6}
-.ring-text{text-align:center;text-transform:uppercase;letter-spacing:3px;font-size:9px;color:#afbd98;margin:-7px 0 0}
-footer{border-top:1px solid #d6e3ac26;padding-top:18px;display:flex;justify-content:space-between;gap:14px;color:#a5b49b;font-size:10px;letter-spacing:.6px}
-footer .heart{color:var(--gold)}
-.spark{position:fixed;z-index:4;pointer-events:none;width:5px;height:5px;border-radius:50%;background:#ffe298;box-shadow:0 0 12px #ffe29888;animation:float var(--duration) ease-in-out infinite;animation-delay:var(--wait)}
-.burst{position:fixed;z-index:5;pointer-events:none;color:#f5cb64;font:22px Georgia,serif;animation:burst 2.4s ease-out forwards}
-.maker{margin:20px auto 4px;width:min(100%,520px);padding:25px;border:1px solid #d6e3ac40;border-radius:18px;background:#142f25}
-.maker h2{font:normal 27px Georgia,serif;margin:0 0 10px}.maker p{font-size:12px;color:var(--muted);line-height:1.6}
-.maker label{display:block;font-size:12px;margin:16px 0 6px;color:var(--cream)}
-.maker input,.maker textarea{display:block;width:100%;background:#0d211a;color:var(--cream);border:1px solid #a4b39866;border-radius:8px;padding:12px;font:14px Arial;line-height:1.5}
-.maker textarea{resize:vertical;min-height:110px}.maker .primary{margin-top:18px}.maker a{color:var(--gold);display:inline-block;margin:16px 0;font-size:13px}
-.create-toggle{background:none;border:0;color:#bccba7;padding:12px;font-size:11px;align-self:center;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
-.controls{position:fixed;right:16px;bottom:14px;z-index:6}
-.pause{border:1px solid #c4d3af40;background:#10251eed;color:#c4d3af;border-radius:30px;font-size:10px;padding:10px 14px}
-.paused *, .paused *:before,.paused *:after{animation-play-state:paused!important}
-@keyframes sway{from{transform:rotate(-1.7deg)}to{transform:rotate(1.7deg)}}
-@keyframes float{0%,100%{transform:translateY(0);opacity:.1}50%{transform:translate(15px,-35px);opacity:.7}}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes burst{from{opacity:.9;transform:translate(0,0) rotate(0)}to{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(140deg)}}
-@media(min-width:900px){.garden{margin-left:-25px}.page{padding-top:36px;padding-bottom:28px}}
-@media(max-width:700px){.page{padding:22px 24px 62px}header{padding-bottom:16px}.brand{font-size:19px}.date{font-size:8px;letter-spacing:1.4px}main{grid-template-columns:1fr;gap:0;padding:30px 0 26px}.copy{text-align:center}.eyebrow{margin-bottom:16px;font-size:9px}h1{font-size:53px;letter-spacing:-2px;margin-bottom:16px}.intro{margin:0 auto 20px;font-size:13px;max-width:280px}.garden{width:min(100%,430px);margin:-5px auto 0;order:2}.hint{margin-top:12px}.note{margin:22px auto 12px;text-align:left}.note p{font-size:19px}.ring-text{font-size:8px;margin:-10px 0 8px}footer{font-size:9px}.primary{padding:14px 24px;min-height:48px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.spark,.burst{display:none}.controls{display:none}}
+.foliage{fill:url(#leaf)}.petals{fill:url(#petal);stroke:#fbe4a038;stroke-width:.6}
+#back-leaves,.wrapping{opacity:0;transition:opacity 1.2s}
+.complete #back-leaves,.complete .wrapping{opacity:1}
+.arrangement{transform-origin:300px 440px}
+.complete .arrangement{animation:dance 5s ease-in-out infinite}
+.complete .petal-wheel{animation:spin 25s linear infinite}
+.complete .flower:nth-child(even) .petal-wheel{animation-direction:reverse}
+#hint{position:absolute;bottom:max(58px,calc(env(safe-area-inset-bottom) + 40px));left:0;right:0;text-align:center;pointer-events:none;color:#dfd9ad;font-size:12px;letter-spacing:2px;transition:opacity .5s}
+.started #hint{opacity:0}
+.seed{position:absolute;left:50%;top:49%;width:74px;height:74px;margin:-37px;border:1px solid #ffe28b77;border-radius:50%;color:#ffdc70;display:grid;place-items:center;font:35px Georgia;box-shadow:0 0 70px #ffdd6820;animation:pulse 2s ease-in-out infinite;pointer-events:none;transition:opacity .3s}
+.seed:before,.seed:after{content:"";position:absolute;inset:-15px;border:1px solid #ffdc7022;border-radius:50%;animation:ripple 2s infinite}
+.seed:after{animation-delay:1s}.started .seed{opacity:0}
+#dots{position:absolute;bottom:max(26px,calc(env(safe-area-inset-bottom) + 14px));display:flex;gap:8px;left:50%;transform:translateX(-50%);pointer-events:none}
+#dots i{width:5px;height:5px;border-radius:50%;background:#e2d89c30;transition:background .4s,box-shadow .4s}
+#dots i.on{background:#ffda72;box-shadow:0 0 10px #ffda7266}.complete #dots{opacity:0;transition:opacity 1.5s}
+#heart{position:absolute;bottom:25px;left:0;right:0;text-align:center;font:32px Georgia;color:#f3cd66;opacity:0;pointer-events:none;transition:opacity 1s}
+.complete #heart{opacity:1;animation:pulse 2s ease-in-out infinite}
+.spark{position:fixed;pointer-events:none;width:3px;height:3px;border-radius:50%;background:#f8db7c;box-shadow:0 0 8px #ffe29888;animation:float var(--duration) ease-in-out infinite;animation-delay:var(--wait)}
+.burst{position:fixed;z-index:4;pointer-events:none;color:#f5cb64;font:21px Georgia;animation:burst 1.8s ease-out forwards}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#pause{position:fixed;right:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:5;border:1px solid #e4dca52a;border-radius:50%;width:40px;height:40px;background:#142b2290;color:#dfd7ae;font-size:13px;opacity:.7}
+.paused *{animation-play-state:paused!important}
+.maker-mode{overflow:auto}.maker{margin:40px auto;width:min(90%,460px);padding:25px;background:#142f25;border:1px solid #d6e3ac40;border-radius:20px}
+.maker h2{font:normal 30px Georgia;margin:0 0 20px}.maker label{display:block;font-size:13px;margin:18px 0 8px}.maker input{width:100%;padding:13px;border:1px solid #a4b39866;background:#0d211a;border-radius:8px;color:#fff1c8;font-size:16px}
+.maker button{border:0;background:#f6cf68;color:#193024;border-radius:30px;padding:14px 20px;margin-top:20px}.maker a{color:#f6cf68;display:block;margin:20px 0}.maker p{font-size:13px;color:#c0c9ac;line-height:1.6}
+@keyframes grow{0%{opacity:0;transform:translateY(70px) scale(.08)}65%{opacity:1;transform:translateY(-9px) scale(1.035)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes unfold{from{transform:rotate(-45deg) scale(.15)}to{transform:rotate(0) scale(1)}}
+@keyframes dance{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-13px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes ripple{from{transform:scale(.8);opacity:.8}to{transform:scale(1.65);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0);opacity:.1}50%{transform:translate(15px,-40px);opacity:.7}}
+@keyframes burst{from{opacity:1;transform:translate(0,0) scale(.7)}to{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(110deg) scale(1.2)}}
+@media(max-height:500px){h1{font-size:27px;top:12px}#stage{padding:42px 10px 30px}#hint{bottom:31px}#dots{bottom:15px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.spark,.burst{display:none}.flower.visible{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="page">
-<header><div class="brand">Un detalle para ti.</div><div class="date">21 de septiembre · Flores amarillas</div></header>
-<main>
-<section class="copy">
-<p class="eyebrow">Hay personas que son primavera</p>
-<h1>Un poquito<br>de <em>sol,</em> para ti.</h1>
-<p class="intro" id="intro">Porque hay personas que hacen más bonitos los días. Y tú eres una de ellas.</p>
-<button class="primary" id="open" aria-expanded="false" aria-controls="note">Tengo algo para ti <span aria-hidden="true">↗</span></button>
-<p class="hint" id="hint">Un pequeño detalle, con mucho cariño.</p>
-<div class="note" id="note" hidden role="status">
-<p id="message">Para ti, que haces mis días más bonitos.
-Que nunca te falten motivos para sonreír, sueños por cumplir y flores amarillas. 💛</p>
-<small id="signature">Con mucho cariño, para ti.</small>
-</div>
-</section>
-<section class="garden" aria-label="Un ramo de flores amarillas que se mecen suavemente">
-<div class="aura"></div>
-<svg class="bouquet" viewBox="0 0 600 630" role="img" aria-labelledby="bouquet-title">
+<main id="gift">
+<h1 id="title">Para MICH</h1>
+<button id="stage" aria-label="Toca para añadir una flor al ramo">
+<svg class="bouquet" viewBox="0 0 600 630" aria-hidden="true">
 <title id="bouquet-title">Ramo de nueve flores amarillas con hojas verdes y un lazo dorado</title>
 <defs>
 <linearGradient id="petal" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#fff2ab"/><stop offset=".43" stop-color="#f9d35a"/><stop offset="1" stop-color="#d8971d"/></linearGradient>
@@ -94,41 +72,29 @@ Que nunca te falten motivos para sonreír, sueños por cumplir y flores amarilla
 <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddcda0" stop-opacity=".19"/><stop offset="1" stop-color="#d9ba72" stop-opacity=".04"/></linearGradient>
 </defs>
 <circle class="orbit" cx="300" cy="285" r="228"/><circle class="orbit" cx="300" cy="285" r="208" stroke-dasharray="2 10"/>
-<g id="back-leaves"></g>
+<g class="arrangement"><g id="back-leaves"></g>
 <g id="flowers"></g>
-<path d="M179 372 Q218 416 303 452 Q365 422 425 375 L341 574 Q304 595 265 574Z" fill="url(#paper)" stroke="#d9c78b45" stroke-width="1"/>
+<g class="wrapping"><path d="M179 372 Q218 416 303 452 Q365 422 425 375 L341 574 Q304 595 265 574Z" fill="url(#paper)" stroke="#d9c78b45" stroke-width="1"/>
 <path d="M179 372 L322 506 L265 574 M425 375 L278 507 L341 574" fill="none" stroke="#ebd9a72b"/>
 <g fill="none" stroke="#d7b96e" stroke-width="3" stroke-linecap="round">
 <path d="M282 490 Q243 456 241 479 Q245 503 303 494 Q351 459 363 479 Q359 507 303 494"/>
 <path d="M304 495 Q283 531 269 544 M305 495 Q325 527 344 537"/>
 </g>
 <ellipse cx="303" cy="494" rx="9" ry="6" fill="#e5c97e"/>
-</svg>
-<p class="ring-text">Un ramo que no se marchita</p>
-</section>
+</g></g></svg>
+<span class="seed" aria-hidden="true">✧</span>
+</button>
+<p id="hint">Toca la pantalla ✨</p>
+<div id="dots" aria-hidden="true"></div><div id="heart" aria-hidden="true">♡</div>
+<p id="status" class="sr" role="status" aria-live="polite">Toca para añadir la primera flor.</p>
+<button id="pause" aria-label="Pausar animación" aria-pressed="false" hidden>Ⅱ</button>
 </main>
-<footer><span>Las cosas bonitas también florecen aquí.</span><span class="heart">Hecho con cariño ♡</span></footer>
-<button class="create-toggle" id="create" aria-expanded="false" aria-controls="maker">Crear otro ramo</button>
 <section class="maker" id="maker" hidden aria-labelledby="maker-title">
-<h2 id="maker-title">Un ramo para alguien más.</h2>
-<p>Cambia los detalles y crea su enlace. Cada persona verá su propia dedicatoria.</p>
-<form id="maker-form">
-<label for="recipient">¿Para quién?</label><input id="recipient" maxlength="80" required placeholder="Su nombre" autocomplete="off">
-<label for="sender">Tu nombre o firma (opcional)</label><input id="sender" maxlength="80" placeholder="Con cariño, de..." autocomplete="off">
-<label for="dedication">Dedicatoria</label><textarea id="dedication" maxlength="700" required>Para ti, que haces mis días más bonitos.
-Que nunca te falten motivos para sonreír, sueños por cumplir y flores amarillas. 💛</textarea>
-<button class="primary" type="submit">Crear enlace ↗</button>
-</form>
-<div id="result" hidden>
-<label for="gift-link">Enlace de tu ramo</label><input id="gift-link" readonly>
-<button class="primary" id="copy-link" type="button">Copiar enlace</button>
-<a id="preview-link" target="_blank" rel="noopener">Abrir este ramo ↗</a>
-<p id="copy-status" role="status"></p>
-</div>
+<h2 id="maker-title">Crear un ramo</h2>
+<form id="maker-form"><label for="recipient">¿Para quién?</label><input id="recipient" maxlength="40" required placeholder="Su nombre" autocomplete="off"><button type="submit">Crear enlace</button></form>
+<div id="result" hidden><label for="gift-link">Enlace para compartir</label><input id="gift-link" readonly><button id="copy-link" type="button">Copiar enlace</button><a id="preview-link" target="_blank" rel="noopener">Ver el ramo</a><p id="copy-status" role="status"></p></div>
 </section>
-</div>
-<div class="controls"><button class="pause" id="pause" aria-pressed="false">Pausar movimiento</button></div>
-<noscript><p style="text-align:center;padding:20px">Para ti, que haces mis días más bonitos. 💛 Activa JavaScript para ver florecer tu ramo.</p></noscript>
+<noscript>Activa JavaScript para hacer florecer tu ramo. 💛</noscript>
 <script>
 'use strict';
 const ns='http://www.w3.org/2000/svg';
@@ -146,51 +112,49 @@ el('path',{d:'M'+(289+i*3)+' 560 Q'+(x+28)+' '+(y+140)+' '+x+' '+y,class:'stem'}
 el('path',{d:'M'+(x+15)+' '+(y+105)+' q-63 -6 -67 -56 q57 0 67 56 M'+(x+18)+' '+(y+142)+' q63 -8 63 -63 q-49 8 -63 63',class:'foliage'},flower);
 const position=el('g',{transform:'translate('+x+' '+y+') rotate('+angle+') scale('+s+')'},flower);
 const head=el('g',{class:'head'},position);
+const petals=el('g',{class:'petal-wheel'},head);
 for(let layer=0;layer<2;layer++)for(let p=0;p<13;p++){
-el('ellipse',{cx:0,cy:layer?-34:-38,rx:layer?11:13,ry:layer?27:32,transform:'rotate('+(p*360/13+layer*14)+')',class:'petals',opacity:layer?1:.82},head);
+el('ellipse',{cx:0,cy:layer?-34:-38,rx:layer?11:13,ry:layer?27:32,transform:'rotate('+(p*360/13+layer*14)+')',class:'petals',opacity:layer?1:.82},petals);
 }
 el('circle',{r:23,fill:'url(#center)'},head);
 for(let d=0;d<65;d++){const a=d*2.399,r=2.3*Math.sqrt(d);el('circle',{cx:Math.cos(a)*r,cy:Math.sin(a)*r,r:1.1,fill:d%3?'#d5a946':'#f0c763',opacity:.72},head);}
 });
-const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
-if(!reduce.matches)for(let i=0;i<18;i++){const dot=document.createElement('span');dot.className='spark';dot.setAttribute('aria-hidden','true');dot.style.cssText='left:'+(8+(i*47)%85)+'%;top:'+(14+(i*29)%74)+'%;--duration:'+(4+i%5)+'s;--wait:-'+i*.6+'s';document.body.appendChild(dot);}
+
 const params=new URLSearchParams(location.hash.slice(1));
-const to=params.get('para')||'MICH',from=params.get('de'),custom=params.get('mensaje');
-if(to)document.getElementById('intro').textContent=to.slice(0,80)+', hay personas que hacen más bonitos los días. Y tú eres una de ellas.';
-document.title='Flores amarillas para '+to+' 💛';
-if(from)document.getElementById('signature').textContent='Con cariño, '+from.slice(0,80)+'.';
-if(custom)document.getElementById('message').textContent=custom.slice(0,700);
-function burst(){
+const to=(params.get('para')||'MICH').slice(0,80);
+document.getElementById('title').textContent='Para '+to;document.title='Para '+to+' 💛';
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+const flowers=Array.from(document.querySelectorAll('.flower'));
+const order=[4,0,1,2,3,5,6,7,8],stage=document.getElementById('stage'),status=document.getElementById('status');
+let count=0;
+for(let i=0;i<flowers.length;i++)document.getElementById('dots').appendChild(document.createElement('i'));
+if(!reduce.matches)for(let i=0;i<16;i++){const dot=document.createElement('span');dot.className='spark';dot.setAttribute('aria-hidden','true');dot.style.cssText='left:'+(8+(i*47)%85)+'%;top:'+(14+(i*29)%74)+'%;--duration:'+(4+i%5)+'s;--wait:-'+i*.6+'s';document.body.appendChild(dot);}
+function burst(x,y,total){
 if(reduce.matches||document.body.classList.contains('paused'))return;
-for(let i=0;i<18;i++){const p=document.createElement('span');p.className='burst';p.textContent=i%3?'✦':'♡';p.setAttribute('aria-hidden','true');p.style.cssText='left:'+(35+Math.random()*30)+'%;top:'+(40+Math.random()*20)+'%;--dx:'+((Math.random()-.5)*300)+'px;--dy:'+(-100-Math.random()*220)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),2500);}
+const budget=Math.min(total,90-document.querySelectorAll('.burst').length);
+for(let i=0;i<budget;i++){const p=document.createElement('span');p.className='burst';p.textContent=i%3?'✦':'♡';p.setAttribute('aria-hidden','true');p.style.cssText='left:'+x+'px;top:'+y+'px;--dx:'+((Math.random()-.5)*330)+'px;--dy:'+(-60-Math.random()*230)+'px';document.body.appendChild(p);setTimeout(()=>p.remove(),1850);}
 }
-document.getElementById('open').addEventListener('click',()=>{
-document.body.classList.add('opened');
-document.getElementById('note').hidden=false;
-document.getElementById('hint').hidden=true;
-const button=document.getElementById('open');button.setAttribute('aria-expanded','true');button.textContent='Más flores para ti ♡';burst();
+stage.addEventListener('click',event=>{
+document.body.classList.add('started');
+const rect=stage.getBoundingClientRect(),x=event.detail?event.clientX:rect.width/2,y=event.detail?event.clientY:rect.height/2;
+if(count<flowers.length){
+flowers[order[count]].classList.add('visible');document.querySelectorAll('#dots i')[count].classList.add('on');count++;
+status.textContent=count+' de '+flowers.length+' flores.';
+burst(x,y,10);
+if(count===flowers.length){document.body.classList.add('complete');stage.setAttribute('aria-label','Ramo completo. Toca para crear destellos');status.textContent='Tu ramo está completo.';document.getElementById('pause').hidden=false;burst(rect.width/2,rect.height*.48,35);}
+}else{burst(x,y,20);}
 });
 document.getElementById('pause').addEventListener('click',function(){
-const paused=document.body.classList.toggle('paused');this.setAttribute('aria-pressed',String(paused));this.textContent=paused?'Activar movimiento':'Pausar movimiento';
+const paused=document.body.classList.toggle('paused');this.setAttribute('aria-pressed',String(paused));this.setAttribute('aria-label',paused?'Activar animación':'Pausar animación');this.textContent=paused?'▷':'Ⅱ';
 });
-const create=document.getElementById('create'),maker=document.getElementById('maker');
-create.addEventListener('click',()=>{maker.hidden=!maker.hidden;create.setAttribute('aria-expanded',String(!maker.hidden));if(!maker.hidden)document.getElementById('recipient').focus();});
-if(new URLSearchParams(location.search).has('crear')){maker.hidden=false;create.setAttribute('aria-expanded','true');}
+if(new URLSearchParams(location.search).has('crear')){document.getElementById('gift').hidden=true;document.getElementById('maker').hidden=false;document.body.classList.add('maker-mode');}
 document.getElementById('maker-form').addEventListener('submit',event=>{
-event.preventDefault();
-const recipient=document.getElementById('recipient').value.trim(),message=document.getElementById('dedication').value.trim();
-if(!recipient||!message){document.getElementById(!recipient?'recipient':'dedication').focus();return;}
-const gift=new URL(location.href);gift.search='';
-const values=new URLSearchParams({para:recipient,mensaje:message});
-const sender=document.getElementById('sender').value.trim();if(sender)values.set('de',sender);
-gift.hash=values.toString();
-document.getElementById('gift-link').value=gift.href;document.getElementById('preview-link').href=gift.href;
-document.getElementById('result').hidden=false;document.getElementById('copy-status').textContent='Listo: copia el enlace y compártelo con esa persona.';
+event.preventDefault();const recipient=document.getElementById('recipient').value.trim();if(!recipient)return;
+const gift=new URL(location.href);gift.search='';gift.hash=new URLSearchParams({para:recipient}).toString();
+document.getElementById('gift-link').value=gift.href;document.getElementById('preview-link').href=gift.href;document.getElementById('result').hidden=false;document.getElementById('copy-status').textContent='Este enlace solo muestra el regalo.';
 });
 document.getElementById('copy-link').addEventListener('click',async()=>{
-const input=document.getElementById('gift-link'),status=document.getElementById('copy-status');
-try{await navigator.clipboard.writeText(input.value);status.textContent='Enlace copiado 💛';}catch(error){input.focus();input.select();status.textContent='Seleccioné el enlace. Mantenlo presionado o usa Ctrl+C para copiarlo.';}
+const input=document.getElementById('gift-link'),status=document.getElementById('copy-status');try{await navigator.clipboard.writeText(input.value);status.textContent='Enlace copiado 💛';}catch(error){input.focus();input.select();status.textContent='Mantén presionado el enlace o usa Ctrl+C para copiarlo.';}
 });
 </script>
-</body>
-</html>
+</body></html>
